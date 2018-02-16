@@ -25,17 +25,26 @@ setup-techstack: setup-tools
 # Setup all projects
 setup: setup-auth setup-manager setup-techstack
 
+clean-auth-ios:
+	rm -rf auth/ios/build/; kill $(lsof -t -i:8081);
+
 run-auth-ios:
 	cd auth; react-native run-ios;
 
 run-auth-android:
 	cd auth; react-native run-android;
 
+clean-techstack-ios:
+	rm -rf techstack/ios/build/; kill $(lsof -t -i:8081);
+
 run-techstack-ios:
 	cd techstack; react-native run-ios;
 
 run-techstack-android:
 	cd techstack; react-native run-android;
+
+clean-manager-ios:
+	rm -rf manager/ios/build/; kill $(lsof -t -i:8081);
 
 run-manager-ios:
 	cd manager; react-native run-ios;
