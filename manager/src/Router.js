@@ -4,6 +4,7 @@ import LoginForm from './components/LoginForm';
 import EmployeeList from './components/EmployeeList';
 import EmployeeCreate from './components/EmployeeCreate';
 import EmployeeEdit from './components/EmployeeEdit';
+import UserHome from './components/UserHome';
 
 const RouterComponent = () => {
   return (
@@ -11,6 +12,9 @@ const RouterComponent = () => {
       <Scene key={'root'} hideNavBar>
         <Scene key={'auth'}>
           <Scene key={'login'} component={LoginForm} title={'Login'} initial />
+        </Scene>
+        <Scene key={'home'}>
+          <Scene key={'welcome'} component={UserHome} title={'Home'} initial />
         </Scene>
         <Scene key={'main'}>
           <Scene

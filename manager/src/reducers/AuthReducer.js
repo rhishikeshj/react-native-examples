@@ -3,7 +3,7 @@ import {
   UPDATE_PASSWORD,
   USER_LOGGED_IN,
   USER_LOGIN_FAILED,
-  USER_LOGIN_STARTED
+  USER_LOGIN_STARTED,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -32,7 +32,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         ...INITIAL_STATE,
-        user: action.user,
+        user: action.user
       };
     case USER_LOGIN_FAILED:
       return {
