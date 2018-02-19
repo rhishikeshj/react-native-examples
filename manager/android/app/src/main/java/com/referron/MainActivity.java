@@ -1,4 +1,4 @@
-package com.manager;
+package com.referron;
 
 import com.facebook.react.ReactActivity;
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
+
 import {
   Card,
   CardSection,
@@ -11,7 +12,8 @@ import {
 import {
   updateEmail,
   updatePassword,
-  loginUser
+  loginUser,
+  socialLoginUser
 } from '../actions';
 
 class LoginForm extends Component {
@@ -26,6 +28,18 @@ class LoginForm extends Component {
   onLoginPressed() {
     const { email, password } = this.props;
     this.props.loginUser({ email, password });
+  }
+
+  onFacebookLogin() {
+    this.props.socialLoginUser({ connection: 'facebook' });
+  }
+
+  onGoogleLogin() {
+    this.props.socialLoginUser({ connection: 'google-oauth2' });
+  }
+
+  onLinkedInLogin() {
+    this.props.socialLoginUser({ connection: 'linkedin' });
   }
 
   renderLoginError() {
@@ -80,6 +94,28 @@ class LoginForm extends Component {
         <CardSection>
           {this.renderButton()}
         </CardSection>
+        <CardSection>
+          <Button
+            onPress={this.onFacebookLogin.bind(this)}
+          >
+            facebook
+          </Button>
+        </CardSection>
+        <CardSection>
+          <Button
+            onPress={this.onGoogleLogin.bind(this)}
+          >
+            google
+          </Button>
+        </CardSection>
+
+        <CardSection>
+          <Button
+            onPress={this.onLinkedInLogin.bind(this)}
+          >
+            linkedIn
+          </Button>
+        </CardSection>
       </Card>
     );
   }
@@ -104,5 +140,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  updateEmail, updatePassword, loginUser
+  updateEmail, updatePassword, loginUser, socialLoginUser
 })(LoginForm);
