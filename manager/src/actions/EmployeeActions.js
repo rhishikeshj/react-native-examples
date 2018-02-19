@@ -2,6 +2,7 @@ import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 
 import * as types from './types';
+import data from '../data/EmployeeList.json';
 
 export const updateEmployee = ({ prop, value }) => {
   return {
@@ -23,15 +24,9 @@ export const addEmployee = ({ name, phone, shift }) => {
 };
 
 export const fetchEmployees = () => {
-  const { currentUser } = firebase.auth();
-  return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/employees`)
-      .on('value', (snapshot) => {
-        dispatch({
-          type: types.EMPLOYEES_FETCHED,
-          data: snapshot.val()
-        });
-      });
+  return {
+    type: types.EMPLOYEES_FETCHED,
+    data: data.users.user_id_1.employees
   };
 };
 

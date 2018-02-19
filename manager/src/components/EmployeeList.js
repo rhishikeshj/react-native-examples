@@ -16,6 +16,10 @@ class EmployeeList extends Component {
     this.createDataSource(nextProps);
   }
 
+  componentWillUnmount() {
+    console.log('EmployeeList unmounted');
+  }
+
   createDataSource({ employees }) {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
@@ -42,6 +46,7 @@ const mapStateToProps = (state) => {
   const employees = _.map(state.employees, (value, uid) => {
     return { ...value, uid };
   });
+
   return {
     employees
   };

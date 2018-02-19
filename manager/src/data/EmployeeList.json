@@ -1,0 +1,43 @@
+{
+  "users" : {
+    "user_id_1": {
+      "employees" : {
+          "user_id_1_employee_1" : {
+            "name" : "Employee 1",
+            "phone" : "9850092979",
+            "shift" : "monday"
+          },
+          "user_id_1_employee_2" : {
+            "name" : "Employee 2",
+            "phone" : "9850092978",
+            "shift" : "tuesday"
+          },
+          "user_id_1_employee_3" : {
+            "name" : "Employee 3",
+            "phone" : "9850092979",
+            "shift" : "wednesday"
+          },
+          "user_id_1_employee_4" : {
+            "name" : "Employee 4",
+            "phone" : "9850092979",
+            "shift" : "thursday"
+          },
+          "user_id_1_employee_5" : {
+            "name" : "Employee 5",
+            "phone" : "9850092979",
+            "shift" : "friday"
+          },
+          "user_id_1_employee_6" : {
+            "name" : "Employee 6",
+            "phone" : "9850092979",
+            "shift" : "saturday"
+          },
+          "user_id_1_employee_7" : {
+            "name" : "Employee 7",
+            "phone" : "9850092979",
+            "shift" : "sunday"
+          }
+      }
+    }
+  }
+}
