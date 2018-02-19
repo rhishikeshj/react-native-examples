@@ -6,14 +6,13 @@
 
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
-import ReduxThunk from 'redux-thunk';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import reducers from './reducers';
 import Router from './Router';
+import configureStore from './data/configureStore';
 
-export default class App extends Component {
+class App extends Component {
   componentWillMount() {
     firebase.initializeApp({
       apiKey: 'AIzaSyCpBtbK5J0EbAnr8gJDUUTASC1ZQImLXxI',
@@ -26,14 +25,15 @@ export default class App extends Component {
   }
 
   render() {
+    const { store, persistor } = configureStore();
     return (
-      <Provider
-        store={createStore(reducers,
-                           {},
-                           applyMiddleware(ReduxThunk))}
-      >
-        <Router />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Router />
+        </PersistGate>
       </Provider>
     );
   }
 }
+
+export default App;

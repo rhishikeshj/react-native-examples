@@ -2,6 +2,7 @@ import {
   UPDATE_EMAIL,
   UPDATE_PASSWORD,
   USER_LOGGED_IN,
+  USER_LOGGED_OUT,
   USER_LOGIN_FAILED,
   USER_LOGIN_STARTED,
 } from '../actions/types';
@@ -33,6 +34,11 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         ...INITIAL_STATE,
         user: action.user
+      };
+    case USER_LOGGED_OUT:
+      return {
+        ...state,
+        ...INITIAL_STATE
       };
     case USER_LOGIN_FAILED:
       return {

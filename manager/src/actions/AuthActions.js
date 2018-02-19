@@ -26,7 +26,7 @@ const onUserLoggedIn = (dispatch, credentials) => {
         user: userInfo,
       });
 
-      Actions.home();
+      Actions.main();
     })
     .catch(error => console.log(error));
 };
@@ -90,6 +90,11 @@ export const socialLoginUser = ({ connection }) => {
   };
 };
 
+export const logoutUser = () => {
+  return {
+    type: types.USER_LOGGED_OUT
+  };
+};
 
 const getAuth0ManagementAPIAccessInfo = (clientId, clientSecret) => {
   return new Promise((resolve, reject) => {
