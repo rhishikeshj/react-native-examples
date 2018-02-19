@@ -13,3 +13,5 @@ export const CREDENTIAL_DOMAIN = 'referron.au.auth0.com';
 export const AUTH0_MANAGEMENT_CLIENT_ID = '';
 export const AUTH0_MANAGEMENT_CLIENT_SECRET = '';
 export const AUTH0_CLIENT_ID = '';
+
+export const DB_INITIALIZED = 'db_initialized';

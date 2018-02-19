@@ -12,7 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Router from './Router';
 import configureStore from './data/configureStore';
 
-export default class App extends Component {
+class App extends Component {
   componentWillMount() {
     firebase.initializeApp({
       apiKey: 'AIzaSyCpBtbK5J0EbAnr8gJDUUTASC1ZQImLXxI',
@@ -35,3 +35,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;

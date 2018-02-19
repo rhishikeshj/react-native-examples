@@ -19,7 +19,8 @@ const authReducer = persistReducer(authPersistConfig, AuthReducer);
 const rootPersistConfig = {
   key: 'root',
   storage,
-  stateReconciler: autoMergeLevel2 // see "Merge Process" section for details.
+  blacklist: ['employees'],
+  stateReconciler: autoMergeLevel2
 };
 
 const reducers = combineReducers({

@@ -16,7 +16,7 @@ class EmployeeEdit extends Component {
 
   onEmployeeUpdate() {
     const { name, phone, shift } = this.props;
-    this.props.updateEmployeeData({ name, phone, shift, id: this.props.employee.uid });
+    this.props.updateEmployeeData({ name, phone, shift, id: this.props.employee.id });
   }
 
   onEmployeeFire() {
@@ -25,7 +25,7 @@ class EmployeeEdit extends Component {
 
   onFireAccept() {
     this.setState({ showModal: false });
-    this.props.deleteEmployee({ id: this.props.employee.uid });
+    this.props.deleteEmployee({ id: this.props.employee.id });
   }
 
   onFireDecline() {
