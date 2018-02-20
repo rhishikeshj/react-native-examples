@@ -28,7 +28,6 @@ class ContactsList extends Component {
   }
 
   renderRow(contact) {
-    console.log(contact);
     return <ContactsItem contact={contact} />;
   }
 

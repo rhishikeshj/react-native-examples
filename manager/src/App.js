@@ -11,6 +11,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import Router from './Router';
 import configureStore from './data/configureStore';
+import themes from './themes/Themes';
 
 class App extends Component {
   componentWillMount() {
@@ -26,6 +27,7 @@ class App extends Component {
 
   render() {
     const { store, persistor } = configureStore();
+    themes.dark.apply();
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
