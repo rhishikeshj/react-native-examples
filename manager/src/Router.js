@@ -8,6 +8,7 @@ import EmployeeCreate from './components/EmployeeCreate';
 import EmployeeEdit from './components/EmployeeEdit';
 import UserHome from './components/UserHome';
 import SplashForm from './components/SplashForm';
+import ContactsList from './components/ContactsList';
 
 import { logoutUser } from './actions';
 
@@ -29,7 +30,8 @@ class RouterComponent extends Component {
             <Scene
               rightTitle={'Add'}
               onRight={() => {
-                Actions.employeeCreate();
+                //Actions.employeeCreate();
+                Actions.contactsList();
               }}
               leftTitle={'Logout'}
               onLeft={() => {
@@ -40,6 +42,14 @@ class RouterComponent extends Component {
               component={EmployeeList}
               title={'Employee List'}
               initial
+            />
+            <Scene
+              rightTitle={'Add'}
+              onRight={() => {
+              }}
+              key={'contactsList'}
+              component={ContactsList}
+              title={'Contacts List'}
             />
             <Scene
               key={'employeeCreate'}

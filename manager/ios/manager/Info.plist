@@ -65,5 +65,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSContactsUsageDescription</key>
+	<string>Scan your contacts list to find friends using Referron.</string>
 </dict>
 </plist>

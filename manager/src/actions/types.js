@@ -15,3 +15,4 @@ export const AUTH0_MANAGEMENT_CLIENT_SECRET = '';
 export const AUTH0_CLIENT_ID = '';
 
 export const DB_INITIALIZED = 'db_initialized';
+export const CONTACTS_FETCHED = 'contacts_fetched';
