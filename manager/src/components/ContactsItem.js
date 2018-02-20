@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View } from 'react-native';
+import { TouchableWithoutFeedback, View } from 'react-native';
+import Theme, { createStyle } from 'react-native-theming';
 
 import { CardSection } from './common';
 
@@ -10,29 +11,32 @@ class ContactsItem extends Component {
 
   render() {
     const { givenName, familyName } = this.props.contact;
-    console.log(givenName);
-    console.log(familyName);
+    console.log(styles.titleStyle);
     return (
       <TouchableWithoutFeedback
         onPress={this.onRowPress.bind(this)}
       >
-        <View>
-          <CardSection>
-            <Text style={styles.titleStyle}>
+        <Theme.View style={styles.container}>
+          <CardSection style={{ backgroundColor: 'transparent' }}>
+            <Theme.Text style={styles.titleStyle}>
               {`${givenName} ${familyName}`}
-            </Text>
+            </Theme.Text>
           </CardSection>
-        </View>
+        </Theme.View>
       </TouchableWithoutFeedback>
     );
   }
 }
 
-const styles = {
+const styles = createStyle({
+  container: {
+    backgroundColor: '@backgroundColor'
+  },
   titleStyle: {
     fontSize: 18,
-    paddingLeft: 15
+    paddingLeft: 15,
+    color: '@textColor'
   }
-};
+});
 
 export default ContactsItem;
