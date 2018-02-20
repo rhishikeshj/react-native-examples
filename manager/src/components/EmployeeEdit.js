@@ -5,6 +5,7 @@ import Communications from 'react-native-communications';
 import { Card, CardSection, Button, Confirm } from './common';
 import EmployeeForm from './EmployeeForm';
 import { updateEmployee, updateEmployeeData, deleteEmployee } from '../actions';
+import { strings } from '../utils/i18n';
 
 class EmployeeEdit extends Component {
   state = { showModal: false };
@@ -46,7 +47,7 @@ class EmployeeEdit extends Component {
           <Button
             onPress={this.onEmployeeUpdate.bind(this)}
           >
-            Save
+            {strings('employeeEdit.Save')}
           </Button>
         </CardSection>
 
@@ -55,7 +56,7 @@ class EmployeeEdit extends Component {
             onPress={this.onEmployeeFire.bind(this)}
             style={{ backgroundColor: 'red' }}
           >
-            Fire
+          {strings('employeeEdit.Fire')}
           </Button>
         </CardSection>
 
@@ -63,7 +64,7 @@ class EmployeeEdit extends Component {
           <Button
             onPress={this.onSendSchedule.bind(this)}
           >
-            Text schedule
+          {strings('employeeEdit.TextSchedule')}
           </Button>
         </CardSection>
 
@@ -72,7 +73,7 @@ class EmployeeEdit extends Component {
           onAccept={this.onFireAccept.bind(this)}
           onDecline={this.onFireDecline.bind(this)}
         >
-          Are you sure you want to fire this employee ?
+        {strings('employeeEdit.ConfirmFire')}
         </Confirm>
       </Card>
     );

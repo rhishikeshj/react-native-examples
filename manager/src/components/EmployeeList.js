@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { connect } from 'react-redux';
-import { createStyle } from 'react-native-theming';
 
 import _ from 'lodash';
 import { fetchEmployees } from '../actions';
@@ -43,13 +42,6 @@ class EmployeeList extends Component {
     );
   }
 }
-
-const styles = createStyle({
-  container: {
-    flex: 1,
-    backgroundColor: '@backgroundColor'
-  }
-});
 
 const mapStateToProps = (state) => {
   const employees = _.map(state.employees, (value, uid) => {

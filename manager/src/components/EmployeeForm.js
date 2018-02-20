@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { CardSection, Input } from './common';
 import { updateEmployee } from '../actions';
+import { strings } from '../utils/i18n';
 
 class EmployeeForm extends Component {
   render() {
@@ -13,7 +14,7 @@ class EmployeeForm extends Component {
           <Input
             value={this.props.name}
             placeholder={'John Doe'}
-            label={'Name'}
+            label={strings('employeeCreate.Name')}
             onChangeText={(text) => this.props.updateEmployee({ prop: 'name', value: text })}
           />
         </CardSection>
@@ -22,14 +23,14 @@ class EmployeeForm extends Component {
         <Input
           value={this.props.phone}
           placeholder={'+91xxxxxxxxxx'}
-          label={'Phone'}
+          label={strings('employeeCreate.Phone')}
           keyboardType={'numeric'}
           onChangeText={(text) => this.props.updateEmployee({ prop: 'phone', value: text })}
         />
         </CardSection>
         <CardSection style={{ flexDirection: 'column' }}>
           <Text style={styles.pickerLabelStyle}>
-            Shift
+            {strings('employeeCreate.Shift')}
           </Text>
           <Picker
             style={{ flex: 1 }}

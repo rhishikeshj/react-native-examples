@@ -16,6 +16,7 @@
     "react-native-auth0": "^1.2.2",
     "react-native-communications": "^2.2.1",
     "react-native-contacts": "^2.1.1",
+    "react-native-i18n": "^2.0.12",
     "react-native-router-flux": "^4.0.0-beta.28",
     "react-native-theming": "^1.0.10",
     "react-redux": "^5.0.6",

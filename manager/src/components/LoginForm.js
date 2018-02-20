@@ -16,6 +16,8 @@ import {
   socialLoginUser
 } from '../actions';
 
+import { strings } from '../utils/i18n';
+
 class LoginForm extends Component {
   componentWillMount() {
     console.log(this.props.employees);
@@ -65,7 +67,7 @@ class LoginForm extends Component {
 
     return (
       <Button onPress={this.onLoginPressed.bind(this)}>
-        Login
+        {strings('login.Login')}
       </Button>
     );
   }
@@ -75,7 +77,7 @@ class LoginForm extends Component {
       <Card>
         <CardSection>
           <Input
-            label={'Email'}
+            label={strings('login.Email')}
             placeholder={'user@example.com'}
             autoCapitalize={'none'}
             onChangeText={this.onEmailChange.bind(this)}
@@ -86,7 +88,7 @@ class LoginForm extends Component {
         <CardSection>
           <Input
             secureTextEntry
-            label={'Password'}
+            label={strings('login.Password')}
             placeholder={'password'}
             onChangeText={this.onPasswordChange.bind(this)}
             value={this.props.password}

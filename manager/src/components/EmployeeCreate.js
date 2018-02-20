@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Card, CardSection, Button } from './common';
 import EmployeeForm from './EmployeeForm';
 import { updateEmployee, addEmployee } from '../actions';
+import { strings } from '../utils/i18n';
 
 class EmployeeCreate extends Component {
   onEmployeeCreate() {
@@ -19,7 +20,7 @@ class EmployeeCreate extends Component {
           <Button
             onPress={this.onEmployeeCreate.bind(this)}
           >
-            Create
+            {strings('employeeCreate.Create')}
           </Button>
         </CardSection>
       </Card>

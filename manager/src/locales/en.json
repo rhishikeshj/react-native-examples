@@ -1,0 +1,30 @@
+{
+  "login": {
+    "Login": "Login",
+    "Email" : "Email",
+    "Password" : "Password"
+  },
+  "employeeList" : {
+    "EmployeeList": "Employee List",
+    "Add" : "Add",
+    "Logout" : "Logout"
+  },
+  "contactsList" : {
+    "Contacts List": "Contacts List",
+    "Add" : "Add",
+  },
+  "employeeCreate" : {
+    "NewEmployee" : "New Employee",
+    "Create" : "Create",
+    "Name" : "Name",
+    "Phone" : "Phone",
+    "Shift" : "Shift"
+  },
+  "employeeEdit" : {
+    "EditEmployee" : "Edit Employee",
+    "Save" : "Save",
+    "Fire" : "Fire",
+    "TextSchedule" : "Text schedule",
+    "ConfirmFire" : "Are you sure you want to fire this employee ?"
+  }
+}

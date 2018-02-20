@@ -1,0 +1,30 @@
+{
+  "login": {
+    "Login": "Iniciar sesión",
+    "Email" : "Correo Electrónico",
+    "Password" : "Contraseña"
+  },
+  "employeeList" : {
+    "EmployeeList": "Lista de Empleados",
+    "Add" : "Añadir",
+    "Logout" : "Cerrar sesión"
+  },
+  "contactsList" : {
+    "ContactsList": "Lista de Contactos",
+    "Add" : "Añadir",
+  },
+  "employeeCreate" : {
+    "NewEmployee" : "Nuevo Empleado",
+    "Create" : "Crear",
+    "Name" : "Nombre",
+    "Phone" : "Teléfono",
+    "Shift" : "Cambio"
+  },
+  "employeeEdit" : {
+    "EditEmployee" : "Editar Empleado",
+    "Save" : "Salvar",
+    "Fire" : "Despedido",
+    "TextSchedule" : "Enviar horario",
+    "ConfirmFire" : "¿Seguro que quieres despedir a este empleado?"
+  }
+}

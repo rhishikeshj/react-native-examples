@@ -11,6 +11,7 @@ import SplashForm from './components/SplashForm';
 import ContactsList from './components/ContactsList';
 
 import { logoutUser } from './actions';
+import { strings } from './utils/i18n';
 
 class RouterComponent extends Component {
   render() {
@@ -28,38 +29,38 @@ class RouterComponent extends Component {
           </Scene>
           <Scene key={'main'}>
             <Scene
-              rightTitle={'Add'}
+              rightTitle={strings('employeeList.Add')}
               onRight={() => {
                 //Actions.employeeCreate();
                 Actions.contactsList();
               }}
-              leftTitle={'Logout'}
+              leftTitle={strings('employeeList.Logout')}
               onLeft={() => {
                 this.props.logoutUser();
                 Actions.splash();
               }}
               key={'employeeList'}
               component={EmployeeList}
-              title={'Employee List'}
+              title={strings('employeeList.EmployeeList')}
               initial
             />
             <Scene
-              rightTitle={'Add'}
+              rightTitle={strings('contactsList.Add')}
               onRight={() => {
               }}
               key={'contactsList'}
               component={ContactsList}
-              title={'Contacts List'}
+              title={strings('contactsList.ContactsList')}
             />
             <Scene
               key={'employeeCreate'}
               component={EmployeeCreate}
-              title={'New Employee'}
+              title={strings('employeeCreate.NewEmployee')}
             />
             <Scene
               key={'employeeEdit'}
               component={EmployeeEdit}
-              title={'Edit Employee'}
+              title={strings('employeeEdit.EditEmployee')}
             />
           </Scene>
         </Scene>
