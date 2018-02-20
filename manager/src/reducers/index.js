@@ -6,6 +6,7 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import AuthReducer from './AuthReducer';
 import EmployeeReducer from './EmployeeReducer';
 import EmployeeListReducer from './EmployeeListReducer';
+import ContactsListReducer from './ContactsListReducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -26,7 +27,8 @@ const rootPersistConfig = {
 const reducers = combineReducers({
   auth: authReducer,
   employeeForm: EmployeeReducer,
-  employees: EmployeeListReducer
+  employees: EmployeeListReducer,
+  contacts: ContactsListReducer
 });
 
 export default persistReducer(rootPersistConfig, reducers);
