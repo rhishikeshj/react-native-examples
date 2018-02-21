@@ -3,6 +3,7 @@ package com.referron;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.github.xinthink.rnmk.ReactMaterialKitPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.rt2zz.reactnativecontacts.ReactNativeContacts;
 import io.realm.react.RealmReactPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactMaterialKitPackage(),
             new RNI18nPackage(),
             new ReactNativeContacts(),
             new RealmReactPackage()

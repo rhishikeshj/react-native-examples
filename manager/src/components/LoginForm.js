@@ -11,9 +11,11 @@ import {
 import {
   Card,
   CardSection,
-  Input,
   Button,
-  Spinner
+  Spinner,
+  TextfieldWithFloatingLabel,
+  PasswordInput,
+  CodeInputTextfield
 } from './common';
 import {
   updateEmail,
@@ -26,7 +28,6 @@ import { strings } from '../utils/i18n';
 
 class LoginForm extends Component {
   componentWillMount() {
-    console.log(this.props.employees);
     this.spinValue = new Animated.Value(0);
     this.marginValue = new Animated.Value(0);
 
@@ -65,6 +66,7 @@ class LoginForm extends Component {
     this.props.socialLoginUser({ connection: 'linkedin' });
   }
 
+
   rotateButton() {
     this.spin();
   }
@@ -73,13 +75,6 @@ class LoginForm extends Component {
     this.spinValue.setValue(0);
     this.marginValue.setValue(0);
     Animated.parallel([
-      Animated.spring(
-        this.marginValue,
-        {
-          toValue: 1,
-          friction: 4
-        }
-      ),
       Animated.timing(
         this.spinValue,
         {
@@ -121,10 +116,15 @@ class LoginForm extends Component {
     return (
       <View>
         <Card>
+          <CodeInputTextfield
+            length={10}
+            onCodeChanged={(code) => {
+              console.log(code);
+              this.spin();
+            }}
+          />
           <CardSection>
-            <Input
-              label={strings('login.Email')}
-              placeholder={'user@example.com'}
+            <TextfieldWithFloatingLabel
               autoCapitalize={'none'}
               onChangeText={this.onEmailChange.bind(this)}
               value={this.props.email}
@@ -132,10 +132,7 @@ class LoginForm extends Component {
           </CardSection>
 
           <CardSection>
-            <Input
-              secureTextEntry
-              label={strings('login.Password')}
-              placeholder={'password'}
+            <PasswordInput
               onChangeText={this.onPasswordChange.bind(this)}
               value={this.props.password}
             />
@@ -207,7 +204,7 @@ const styles = {
     alignSelf: 'center',
     color: 'red',
     fontWeight: '600',
-  }
+  },
 };
 
 const mapStateToProps = (state) => {
@@ -216,7 +213,7 @@ const mapStateToProps = (state) => {
     password: state.auth.password,
     error: state.auth.error,
     loading: state.auth.loading,
-    employees: state.employees
+    employees: state.employees,
   };
 };
 
