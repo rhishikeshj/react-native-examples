@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import {
+  View,
+  Text,
+  Animated,
+  Easing,
+  TouchableOpacity
+} from 'react-native';
 
 import {
   Card,
@@ -21,6 +27,17 @@ import { strings } from '../utils/i18n';
 class LoginForm extends Component {
   componentWillMount() {
     console.log(this.props.employees);
+    this.spinValue = new Animated.Value(0);
+    this.marginValue = new Animated.Value(0);
+
+    this.spinDeg = this.spinValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg']
+    });
+    this.marginLeft = this.marginValue.interpolate({
+      inputRange: [0, 0.5, 1],
+      outputRange: [15, 400, 15]
+    });
   }
 
   onEmailChange(email) {
@@ -48,6 +65,32 @@ class LoginForm extends Component {
     this.props.socialLoginUser({ connection: 'linkedin' });
   }
 
+  rotateButton() {
+    this.spin();
+  }
+
+  spin() {
+    this.spinValue.setValue(0);
+    this.marginValue.setValue(0);
+    Animated.parallel([
+      Animated.spring(
+        this.marginValue,
+        {
+          toValue: 1,
+          friction: 4
+        }
+      ),
+      Animated.timing(
+        this.spinValue,
+        {
+          toValue: 1,
+          duration: 500,
+          easing: Easing.ease
+        }
+      )
+    ]).start();
+  }
+
   renderLoginError() {
     if (this.props.error) {
       return (
@@ -73,56 +116,87 @@ class LoginForm extends Component {
   }
 
   render() {
+    const forwardArrow = require('../icons/forward_arrow.png');
+
     return (
-      <Card>
-        <CardSection>
-          <Input
-            label={strings('login.Email')}
-            placeholder={'user@example.com'}
-            autoCapitalize={'none'}
-            onChangeText={this.onEmailChange.bind(this)}
-            value={this.props.email}
-          />
-        </CardSection>
+      <View>
+        <Card>
+          <CardSection>
+            <Input
+              label={strings('login.Email')}
+              placeholder={'user@example.com'}
+              autoCapitalize={'none'}
+              onChangeText={this.onEmailChange.bind(this)}
+              value={this.props.email}
+            />
+          </CardSection>
 
-        <CardSection>
-          <Input
-            secureTextEntry
-            label={strings('login.Password')}
-            placeholder={'password'}
-            onChangeText={this.onPasswordChange.bind(this)}
-            value={this.props.password}
-          />
-        </CardSection>
+          <CardSection>
+            <Input
+              secureTextEntry
+              label={strings('login.Password')}
+              placeholder={'password'}
+              onChangeText={this.onPasswordChange.bind(this)}
+              value={this.props.password}
+            />
+          </CardSection>
 
-        {this.renderLoginError()}
+          {this.renderLoginError()}
 
-        <CardSection>
-          {this.renderButton()}
-        </CardSection>
-        <CardSection>
-          <Button
-            onPress={this.onFacebookLogin.bind(this)}
+          <CardSection>
+            {this.renderButton()}
+          </CardSection>
+          <CardSection>
+            <Button
+              onPress={this.onFacebookLogin.bind(this)}
+            >
+              facebook
+            </Button>
+          </CardSection>
+          <CardSection>
+            <Button
+              onPress={this.onGoogleLogin.bind(this)}
+            >
+              google
+            </Button>
+          </CardSection>
+
+          <CardSection>
+            <Button
+              onPress={this.onLinkedInLogin.bind(this)}
+            >
+              linkedIn
+            </Button>
+          </CardSection>
+        </Card>
+        <Animated.View
+          style={{
+            justifyContent: 'center',
+            paddingTop: 15,
+            marginLeft: this.marginLeft
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              width: 70,
+              height: 70,
+              borderRadius: 35,
+              borderColor: '#2c3e50',
+              borderWidth: 1,
+              backgroundColor: '#2980b9',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+            onPress={this.rotateButton.bind(this)}
           >
-            facebook
-          </Button>
-        </CardSection>
-        <CardSection>
-          <Button
-            onPress={this.onGoogleLogin.bind(this)}
-          >
-            google
-          </Button>
-        </CardSection>
-
-        <CardSection>
-          <Button
-            onPress={this.onLinkedInLogin.bind(this)}
-          >
-            linkedIn
-          </Button>
-        </CardSection>
-      </Card>
+            <Animated.Image
+              source={forwardArrow}
+              resizeMethod={'scale'}
+              style={{ transform: [{ rotate: this.spinDeg }] }}
+            />
+          </TouchableOpacity>
+        </Animated.View>
+      </View>
     );
   }
 }
